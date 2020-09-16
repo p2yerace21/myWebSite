@@ -1,0 +1,50 @@
+<html>
+<head>
+<script language = "JavaScript">
+
+var number = 10; // Global variable available in our script
+function tester()
+{
+/*
+    var answer; // Declare a new variable called answer
+	answer= confirm("Hello world"); // true or false is stored in answer var
+    
+    answer= prompt("What's your name?"); // string literal is between open / close quote marks
+    alert("Welcome to my site, "+answer);
+*/
+    
+    number = number - 1; // subtract 1 from number
+    
+    if(number == 0)
+    {
+        alert("Blastoff");
+        number = 11;
+    }   
+    else
+    {
+         alert(number);
+         
+    }
+}
+
+
+</script>
+
+</head>
+<body>
+<center> 
+<h1> JavaScript Tester </h1>
+
+<br/>
+<br/>
+
+<input type="button" value="Click Me" onClick="tester()">
+
+<br/>
+<br/>
+
+    Click here to <a href="index.html"> return to my home page </a>
+    
+</center>
+</body>
+</html>
