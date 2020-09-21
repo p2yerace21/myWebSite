@@ -2,7 +2,9 @@
 <head>
 <script language = "JavaScript">
 
-var number = 10; // Global variable available in our script
+var number = 0; // Global variable available in our script
+var myList = ["Tyrone", "Lenar", "Tredavious", "Toby"]; //brakcets mean list
+    
 function tester()
 {
 /*
@@ -11,20 +13,30 @@ function tester()
     
     answer= prompt("What's your name?"); // string literal is between open / close quote marks
     alert("Welcome to my site, "+answer);
-*/
-    
+    // an = is an assignment operator (right side is assigned to left side)
     number = number - 1; // subtract 1 from number
-    
+    // a == tests equality...does the thing on the left equal the thing on the right
+
     if(number == 0)
     {
-        alert("Blastoff");
-        number = 11;
+        alert("MONKI FLIP");
+        number = 6;
     }   
     else
     {
-         alert(number);
-         
+         alert(number);    
     }
+*/  
+
+    alert(myList[number]);
+
+    number = number + 1;
+
+    if(number == 4)
+    {
+        number = 0;
+    }
+
 }
 
 
@@ -36,15 +48,18 @@ function tester()
 <h1> JavaScript Tester </h1>
 
 <br/>
-<br/>
 
 <input type="button" value="Click Me" onClick="tester()">
 
 <br/>
 <br/>
 
+<img src="images/monkiflip.jpg" width="450" height="450">
+
+<br/>
+<br/>
+
     Click here to <a href="index.html"> return to my home page </a>
-    
 </center>
 </body>
 </html>
