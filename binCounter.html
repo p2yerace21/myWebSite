@@ -6,7 +6,7 @@ var autoClicked = false
 function addOne()
 {
      //increment the number variable and alert it
-     number++; //also increases a variable by 1
+     number = number +1; //also increases a variable by 1
      
      //Write code that resets (to zero) the number variable when it reaches 16
      if(number == 16)
@@ -18,7 +18,7 @@ function addOne()
     
      if(autoClicked == true)
      {
-          var timer = setTimeout ( "addOne()" , 1000 );
+          var time = setTimeout ( "addOne()" , 600 );
      }
     
      
@@ -31,9 +31,10 @@ function flipLEDs()
      onesPlace();
      twosPlace();
      foursPlace();
+     eightPlace();
 }
    
-    
+
 function auto()
 {
      if(autoClicked == false)
@@ -44,8 +45,8 @@ function auto()
      }
      else
      {
-         autoClicked = false;     ASK FOR HELP
-         
+         autoClicked = false;
+         document.getElementById("runStop").value = "Run";
      }
 }
 
@@ -53,7 +54,7 @@ function auto()
 function onesPlace()
 {
      //write code that tests if number is odd or even
-     if(number ÷ 2 == 1) //number divided by 2, and the remainder is 1
+     if(number % 2 == 1) //number divided by 2, and the remainder is 1
      {
           document.getElementById("ones").src = "images/ledON.png";
      }
@@ -66,20 +67,20 @@ function onesPlace()
     
 function twosPlace()
 {
-     if(number ÷ 4 < 2)
+     if(number % 4 > 1)
      {
-          document.getElementById("twos").src = "images/ledOFF.png";
+          document.getElementById("twos").src = "images/ledON.png";
      }
      else
      {
-          document.getElementById("twos").src = "images/ledON.png";
+          document.getElementById("twos").src = "images/ledOFF.png";
      }
 }
     
 
-function foursPlace()    ASK FOR HELP
+function foursPlace()
 {
-     if(number ÷ 2 == 1)
+     if(number % 8 > 3)
      {
           document.getElementById("fours").src = "images/ledON.png";
      }
@@ -89,12 +90,25 @@ function foursPlace()    ASK FOR HELP
      }
 }
 
+    
+function eightsPlace()
+{
+     if(number % 16 > 7)
+     {
+          document.getElementById("eights").src = "images/ledON.png";
+     }
+     else
+     {
+          document.getElementById("eights").src = "images/ledOFF.png";
+     }
+}
 
 
 </script>
 </head>
-<body>
+<body bgcolor="gray" link="black">
 <center>
+<font color="red">
 <h1> Binary Clock </h1>
 Click Here to <a href="index.html" Return To My Homepage </a>
 <br/>
@@ -106,30 +120,35 @@ Click Here to <a href="index.html" Return To My Homepage </a>
 <input id = "count" type = "text" size = "20" style = "text-align:center"/>
 
 
-<div id = "first" style = "position:absolute; top:150; left: 600">
+<div id = "first" style = "position:absolute; top:150; left: 675">
 2^0
 <br/>
 <img id = "ones" src = "images/ledOFF.png" width = "50"/>
 </div>
 
-<div id = "second" style = "position:absolute; top:150; left: 500">
+<div id = "second" style = "position:absolute; top:150; left: 575">
 2^1
 <br/>
 <img id = "twos" src = "images/ledOFF.png" width = "50"/>
 </div>
 
-<div id = "third" style = "position:absolute; top:150; left: 400">
+<div id = "third" style = "position:absolute; top:150; left: 475">
 2^2
 <br/>
 <img id = "fours" src = "images/ledOFF.png" width = "50"/>
 </div>
 
-<div id = "fourth" style = "position:absolute; top:150; left: 300">
+<div id = "fourth" style = "position:absolute; top:150; left: 375">
 2^3
 <br/>
 <img id = "eights" src = "images/ledOFF.png" width = "50"/>
 </div>
 
-
-
+<br/>
+<br/>
+<br/>
+    
+</font>
+</center>
+</body>
 </html>
