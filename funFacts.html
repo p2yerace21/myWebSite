@@ -1,0 +1,83 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1. Identify what you are trying to solve/create
+2. Take each part one step at a time
+3. Begin the code by identifying your global variables (assuming you have already identified the code to be html, created a head, and identified the script's language)
+4. Develop a code which will link the two arrays together, corresponding 0 with 0, 1 with 1, 2 with 2, etc...
+5. Create a loop that will increase an integer every time it's passes through for the array variable
+6. Once the loop has completed, write an if statement which will test the code
+7. Complete the page by providing a link back the the home page, and close the body and html script
+8. Congratulations
+
+*/
+
+//Create an array of at least 8 additional items
+var group = ["Abraham Lincoln", "George Washington", "George Bush", "Donald Trump", "James Madison", "Barrack Obama", "Andrew Jackson"];
+//add at least 8 fun facts corresponding to the group array
+var facts = ["This beauty was 6 foot 4 inches", "This chad got forced into being the first president of some rebellious colonists", "This man was rumored to have been working in the shadows, orchestrating 9/11 from the inside", "This man was gifted a small loan of a million dollars", "This genius once lost an election because he didn't give alcohol to voters", "This is delectable individual is rumored to have been born in Kenya", "This absolute beast got into over a hundred duels during his presidency, and died with multiple bullets lodged in his chest decades later"];
+
+function loadData()
+{
+	var sum = 0;
+	for(var i = 0; i<group.length; i++)
+    {
+        var daList = document.getElementById("prez");
+  		var option = document.createElement("option");
+  		option.text = group[i];
+  		daList.add(option);
+    }
+}
+
+// This function identifies which element from the drop down has been selected. It calls the 
+// getIndex function to acquire what the index of the selected item. Then it displays the 
+// corresponding element in the facts list. (This is diplayed in the textbox on the web page.)
+function start()
+{
+	// We'll code this second
+    alert(getIndex("C"));
+}
+
+// This function searches the group array for the element passed as a parameter
+// and returns the index number for that element in the array.
+function getIndex(d) //var d = "hello";
+{
+    var answer = -1;
+    
+    //write a for loop that traverses the entire group array once
+    for(var i = 0; i < group.length; i++)
+    {
+        //Write an if statement that tests if the element at i equals the parameter passed in the getIndex function
+        if(group[i] == d) //d is found at index i
+        {
+            answer = i;
+        }
+    }
+    return answer;
+}
+
+
+
+</script>
+</head>
+<body onload="loadData()"> 
+<center>
+<h1>Presidential Fun Facts</h1>
+Click here to return to my home page.
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<select name="p1" id="prez"></select>	</td>
+		<td>	<input id="funFact" type="text" size="40"/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input type="button" value="click" onclick="start()"/>
+</center>
+
+
+</body>
+</html>
