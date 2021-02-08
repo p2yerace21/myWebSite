@@ -1,0 +1,98 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1. Make 2 different arrays, one for the questions, and one for the answers
+2. Use the line of got document.getElementById to show the question when a button is clicked
+3. Create a text box so the user can input their answer
+4. Create a function to check to see if the answer is correct
+5. Create a text box to display the questions
+6. Create a function that will display whether the answer was correct
+7. Create a score count to add up points for every right question
+8. Return the function to repeat the process
+
+*/
+
+
+var questions; ["What is the capitol of Alabama?", "What is the capital of Arizona?", "What is the capitol of Arkansas?", "What is the capitol of California?", "What is the capitol of Conneticut", "What is the capitol of Delaware?", "What is the capitol of Florida?", "What is the capitol Georgia?", "What is the capitol of Hawaii?"];
+
+var answers ; ["Montgomery", "Juneau", "Phoenix", "Little Rock", "Sacramento", "Hartford", "Dover", "Tallahassee", "Atlanta", "Honolulu"];
+
+var index = -1;
+
+var score = 0
+
+
+// Create code in displayQuestion that will display the contents of the questions array, one 
+// element at a time. After the last element is displayed, the program should display the first
+// element again.
+function displayQuestion()
+{
+    index = index + 1;
+    if(index > questions.length-1)
+    {
+        index = 0;
+    }
+    var answer = document.getElementById("question");
+    answer.value = question[index];
+}
+
+
+// This function will first acquire the user's answer (from the textbox with the ID "answer". Then this function will pass that to the checkAnswer function (note: that there is a parameter.) The checkAnswer will return a true or a false. If that function returns true, then the score variable will increase by 1, and an alert should pop up saying "Correct" or something positive. If the checkAnswer function comes back false, then score doesn't increase but an alert should announce "incorect." or something similar. 
+function updateScore()
+{
+    var answerT = document.getElementById("answer");
+    var daAnswer = checkAnswer(answerT.value);
+    if(daAnswer == true)
+    {
+        score = score + 1;
+        alert("Correct!");
+    }
+    else if(daAnswer == false)
+    {
+        alert("Incorrect, the correct answer is " +answers[index]);
+}
+
+// This function takes a parameter which will be the users answer. If what the user has submitted the correct answer, this method should return true. Otherwise it should return false. 
+function checkAnswer(ans)
+{
+    var answer = -1;
+    if(ans == answers[index])
+    {
+        answer = true;
+    }
+    else
+    {
+        answer = false;
+    }
+    return answer;
+}
+
+
+
+</script>
+</head>
+<body > 
+<center>
+<h1>My Quiz</h1>
+<h3>Click <a href="index.html">here to return to my home page. </a><h3>
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<input id="question" type="text" size="70" readonly = true/>	</td>
+	</tr>
+	<tr height = "12"><td></td>
+	</tr>
+	<tr>
+		<td>	<input id="answer" type="text" size="70" onfocusout="updateScore()"/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input type="button" value="Next Question" onclick="displayQuestion()"/>
+</center>
+
+
+</body>
+</html>
